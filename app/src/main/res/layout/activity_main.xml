@@ -8,7 +8,6 @@
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/dl"
-        tools:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -61,7 +60,6 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/splash_screen"
-        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
