@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- 状态栏背景色 -->
+    <color name="colorStatusBar">#FFFFFF</color>
+
+    <!-- 页面背景色-->
+    <color name="colorPageBackground">#FFFFFF</color>
+    <color name="dso_color_page">#F9F9F9</color>
+
+    <color name="colorMenuBackground">#BFFFFFFF</color>
+
+    <!-- 图标前景色 -->
+    <color name="colorIconForeground">#000000</color>
+    <color name="colorSubIconForeground">#5A5A5A</color>
+
+    <!-- Item 背景色 -->
+    <color name="colorItemBackground">#FFFFFF</color>
+    <color name="colorItemPressedBackground">#F0F0F0</color>
+
+    <!-- 字体前景色 -->
+    <color name="colorTextForeground">#050505</color>
+    <color name="colorSubTextForeground">#787878</color>
+    <color name="colorEditTextBackground">#F5F5F5</color>
+
+    <color name="colorCheckItemBackground">#C8C8C8</color>
+
+    <color name="colorTransparency">#00000000</color>
+
+    <color name="colorAppThemeColor">#DB2C1F</color>
+    <color name="colorDialogBackground">#FFFFFF</color>
+    <color name="colorHintForeground">#C8C8C8</color>
+
+    <color name="salt_color_song_cover">#F3F3F3</color>
+
+    <color name="colorBlurViewBackground">#BFFFFFFF</color>
+    <color name="miniPlayerBlurViewBackground">#73FFFFFF</color>
+    <color name="colorCommonTextForeground">#969696</color>
+
+    <color name="colorDividerBackground">#E6E6E6</color>
+
+    <color name="colorLyricSubForeground">#4B4B4B</color>
+</resources>
