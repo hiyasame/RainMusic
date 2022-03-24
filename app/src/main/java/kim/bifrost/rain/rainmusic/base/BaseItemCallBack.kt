@@ -2,7 +2,7 @@ package kim.bifrost.rain.rainmusic.base
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
-import kim.bifrost.rain.rainmusic.utils.getProperty
+import kim.bifrost.rain.rainmusic.utils.extensions.getProperty
 
 /**
  * kim.bifrost.rain.rainmusic.base.BaseItemCallBack
@@ -25,6 +25,12 @@ open class BaseItemCallBack<T>(
         return oldItem == newItem
     }
 
+    /**
+     * 默认实现这个方法有一定的好处，避免每次刷新时都与缓存互换
+     */
+    override fun getChangePayload(oldItem: T, newItem: T): Any {
+        return "" // 这里只要不传入 null 就可以了
+    }
 }
 
 val defFunc: (Any, Any) -> Boolean = { a, b ->

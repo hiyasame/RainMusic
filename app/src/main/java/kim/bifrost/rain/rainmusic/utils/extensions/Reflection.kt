@@ -1,4 +1,4 @@
-package kim.bifrost.rain.rainmusic.utils
+package kim.bifrost.rain.rainmusic.utils.extensions
 
 import java.lang.reflect.Constructor
 import java.lang.reflect.Field
