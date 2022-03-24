@@ -1,30 +1,35 @@
 package kim.bifrost.rain.rainmusic.view.activity
 
 import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.lifecycleScope
+import android.view.animation.AlphaAnimation
+import androidx.core.view.postDelayed
 import kim.bifrost.rain.rainmusic.R
-import kim.bifrost.rain.rainmusic.base.BaseActivity
+import kim.bifrost.rain.rainmusic.base.ui.BaseBindActivity
 import kim.bifrost.rain.rainmusic.databinding.ActivityMainBinding
+import kim.bifrost.rain.rainmusic.utils.extensions.gone
+import kim.bifrost.rain.rainmusic.utils.extensions.setOnEnd
 import kim.bifrost.rain.rainmusic.view.fragment.SplashFragment
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseBindActivity<ActivityMainBinding>() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (supportFragmentManager.findFragmentById(R.id.splash_screen) == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.splash_screen, SplashFragment())
-                .commit()
+
+        replaceFragment(R.id.splash_screen) {
+            SplashFragment()
         }
-        // 其余控件加载完毕
-        lifecycleScope.launch {
-            delay(2000)
-            binding.apply {
-                splashScreen.visibility = View.INVISIBLE
-                dl.visibility = View.VISIBLE
-            }
+
+        // 使用 Handler 更轻量级一些
+        binding.splashScreen.postDelayed(1600) {
+            // 来个淡出动画，它不香吗？:)
+            binding.splashScreen.startAnimation(
+                AlphaAnimation(1F, 0F).apply {
+                    duration = 400
+                    setOnEnd {
+                        binding.splashScreen.gone() // 这里使用 GONE 要好一些，因为 INVISIBLE 是会拦截点击事件的
+                    }
+                }
+            )
         }
     }
 }

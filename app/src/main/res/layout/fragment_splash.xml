@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible">
+    android:background="@android:color/white">
 
-        <ImageView
-            android:id="@+id/iv_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_music"
-            tools:ignore="ContentDescription" />
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_music"
+        tools:ignore="ContentDescription" />
 
-        <TextView
-            tools:text="青山绿水，白草红叶黄花。"
-            android:id="@+id/tv_poem"
-            android:maxWidth="300dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginBottom="100dp"
-            android:textSize="16sp" />
+    <TextView
+        android:id="@+id/tv_poem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="100dp"
+        android:maxWidth="300dp"
+        android:textSize="16sp"
+        tools:text="青山绿水，白草红叶黄花。" />
 
 </FrameLayout>
