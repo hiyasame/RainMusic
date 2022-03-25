@@ -11,7 +11,7 @@ import kim.bifrost.rain.rainmusic.utils.extensions.invisible
 import kim.bifrost.rain.rainmusic.utils.extensions.setOnEnd
 import kim.bifrost.rain.rainmusic.view.fragment.SplashFragment
 
-class MainActivity : BaseBindActivity<ActivityMainBinding>() {
+class MainActivity : BaseBindActivity<ActivityMainBinding>(isCancelStatusBar = true) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

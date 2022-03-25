@@ -2,92 +2,82 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/dl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <!--自动占状态栏的高度-->
-        <kim.bifrost.rain.rainmusic.widget.StatusBar
-            android:layout_width="match_parent"
-            android:layout_height="0dp" />
+        android:layout_height="match_parent">
 
-        <androidx.drawerlayout.widget.DrawerLayout
-            android:id="@+id/dl"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
+            <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?actionBarSize">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="?actionBarSize">
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:tabIndicatorColor="@color/colorAppThemeColor"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorGravity="bottom"
+                    app:tabMode="auto"
+                    app:tabPaddingEnd="2dp"
+                    app:tabPaddingStart="0dp"
+                    app:tabRippleColor="@color/colorTransparency"
+                    app:tabSelectedTextColor="@color/colorAppThemeColor"
+                    app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:tabTextColor="@color/colorTextForeground">
 
-                    <com.google.android.material.tabs.TabLayout
+                    <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:tabIndicatorColor="@color/colorAppThemeColor"
-                        app:tabIndicatorFullWidth="false"
-                        app:tabIndicatorGravity="bottom"
-                        app:tabMode="auto"
-                        app:tabPaddingEnd="2dp"
-                        app:tabPaddingStart="0dp"
-                        app:tabRippleColor="@color/colorTransparency"
-                        app:tabSelectedTextColor="@color/colorAppThemeColor"
-                        app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:tabTextColor="@color/colorTextForeground">
+                        android:text="@string/my" />
 
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/my" />
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/square" />
 
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/square" />
+                </com.google.android.material.tabs.TabLayout>
+            </androidx.appcompat.widget.Toolbar>
 
-                    </com.google.android.material.tabs.TabLayout>
-                </androidx.appcompat.widget.Toolbar>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/vp_main"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+            <!--                <eightbitlab.com.blurview.BlurView-->
+            <!--                    android:id="@+id/blurViewPlay"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="64dp"-->
+            <!--                    android:background="@drawable/bg_mini_player"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent" />-->
 
-<!--                <eightbitlab.com.blurview.BlurView-->
-<!--                    android:id="@+id/blurViewPlay"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="64dp"-->
-<!--                    android:background="@drawable/bg_mini_player"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent" />-->
+            <include
+                android:layout_gravity="bottom"
+                android:id="@+id/bottom_player_bar"
+                layout="@layout/bottom_player_bar"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
 
-                <include
-                    android:layout_gravity="bottom"
-                    android:id="@+id/bottom_player_bar"
-                    layout="@layout/bottom_player_bar"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start">
 
-            <com.google.android.material.navigation.NavigationView
-                android:id="@+id/navigationView"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="start">
+        </com.google.android.material.navigation.NavigationView>
 
-            </com.google.android.material.navigation.NavigationView>
-
-        </androidx.drawerlayout.widget.DrawerLayout>
-
-    </LinearLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/splash_screen"
