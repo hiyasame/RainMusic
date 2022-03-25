@@ -16,6 +16,7 @@ abstract class BaseVmActivity<VM: ViewModel>(
     isCancelStatusBar: Boolean = true,
 ) : BaseActivity(isPortraitScreen, isCancelStatusBar) {
 
+    @Suppress("UNCHECKED_CAST")
     protected val viewModel by lazy(LazyThreadSafetyMode.NONE) {
         val factory = getViewModelFactory()
         if (factory == null) {

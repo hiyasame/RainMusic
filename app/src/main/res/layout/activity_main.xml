@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,11 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
         <!--自动占状态栏的高度-->
         <kim.bifrost.rain.rainmusic.widget.StatusBar
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp" />
 
         <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/dl"
@@ -28,6 +25,7 @@
                 <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize">
+
                     <com.google.android.material.tabs.TabLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -46,17 +44,36 @@
                         <com.google.android.material.tabs.TabItem
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="我的"
-                            tools:ignore="HardcodedText" />
+                            android:text="@string/my" />
 
                         <com.google.android.material.tabs.TabItem
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="首页"
-                            tools:ignore="HardcodedText" />
+                            android:text="@string/square" />
 
                     </com.google.android.material.tabs.TabLayout>
                 </androidx.appcompat.widget.Toolbar>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+<!--                <eightbitlab.com.blurview.BlurView-->
+<!--                    android:id="@+id/blurViewPlay"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="64dp"-->
+<!--                    android:background="@drawable/bg_mini_player"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent" />-->
+
+                <include
+                    android:layout_gravity="bottom"
+                    android:id="@+id/bottom_player_bar"
+                    layout="@layout/bottom_player_bar"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

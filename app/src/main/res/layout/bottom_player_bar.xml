@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="64dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_song"
+        android:background="@color/salt_color_song_cover"
+        app:shapeAppearance="@style/CircleStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:gravity="center_vertical"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        android:textColor="@color/colorTextForeground"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toEndOf="@+id/siv_song"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivPlayQueue"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="4dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="9dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivStartOrPause"
+        app:srcCompat="@drawable/ic_play_queue"
+        tools:ignore="ContentDescription,VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/ivStartOrPause"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="4dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivPlayQueue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_mini_player_play"
+        tools:ignore="ContentDescription,VectorDrawableCompat" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

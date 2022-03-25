@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RainMusic</string>
+    <string name="my">我的</string>
+    <string name="square">发现</string>
 </resources>

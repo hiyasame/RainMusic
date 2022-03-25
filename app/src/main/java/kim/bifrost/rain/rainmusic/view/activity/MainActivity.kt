@@ -7,6 +7,7 @@ import kim.bifrost.rain.rainmusic.R
 import kim.bifrost.rain.rainmusic.base.ui.BaseBindActivity
 import kim.bifrost.rain.rainmusic.databinding.ActivityMainBinding
 import kim.bifrost.rain.rainmusic.utils.extensions.gone
+import kim.bifrost.rain.rainmusic.utils.extensions.invisible
 import kim.bifrost.rain.rainmusic.utils.extensions.setOnEnd
 import kim.bifrost.rain.rainmusic.view.fragment.SplashFragment
 

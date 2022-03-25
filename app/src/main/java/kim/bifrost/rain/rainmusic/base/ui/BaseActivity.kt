@@ -13,9 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.LiveData
-import kim.bifrost.rain.rainmusic.R
 import kim.bifrost.rain.rainmusic.utils.BindView
-import kim.bifrost.rain.rainmusic.view.fragment.SplashFragment
 import java.lang.RuntimeException
 import java.lang.reflect.ParameterizedType
 
@@ -92,6 +90,7 @@ abstract class BaseActivity(
      *     这样写得到的是 T, 没错, 真的是 T, 这是无法得到传入时 T 的具体类型的
      * ```
      */
+    @Suppress("UNCHECKED_CAST")
     protected inline fun <reified T> getGenericClassFromSuperClass(): Class<T> {
         val genericSuperclass = javaClass.genericSuperclass // 得到继承的父类填入的泛型（必须是具体的类型，不能是 T 这种东西）
         if (genericSuperclass is ParameterizedType) {
@@ -110,7 +109,7 @@ abstract class BaseActivity(
         throw RuntimeException("你父类的泛型为: $genericSuperclass, 其中不存在 ${T::class.java.simpleName}")
     }
 
-    inline fun <T> LiveData<T>.observeNotNull(
+    inline fun <T> LiveData<T?>.observeNotNull(
         crossinline onChange: (T) -> Unit
     ) = observe(this@BaseActivity) {
         it ?: return@observe
