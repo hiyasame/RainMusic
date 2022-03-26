@@ -2,13 +2,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/dl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+        <!--该fitsSystemWindows属性用于偏移状态栏和导航栏高度-->
+        <!--fitsSystemWindows给DrawerLayout设置后有两个坑：
+        1、状态栏会有一个颜色，只能使用方法setStatusBarBackgroundColor修改
+        2、NavigationView会有一个蒙层，给NavigationView加个insetForeground属性-->
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -73,7 +77,8 @@
             android:id="@+id/navigationView"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:layout_gravity="start">
+            android:layout_gravity="start"
+            app:insetForeground="@android:color/transparent">
 
         </com.google.android.material.navigation.NavigationView>
 

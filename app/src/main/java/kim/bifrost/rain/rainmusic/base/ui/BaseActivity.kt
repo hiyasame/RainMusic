@@ -56,7 +56,7 @@ abstract class BaseActivity(
         // 这是 Android 做了兼容的 Compat 包
         WindowCompat.setDecorFitsSystemWindows(window, false)
         val windowInsetsController = ViewCompat.getWindowInsetsController(decorView)
-        windowInsetsController?.isAppearanceLightStatusBars = true
+        windowInsetsController?.isAppearanceLightStatusBars = true // 设置状态栏字体颜色为黑色
         window.statusBarColor = Color.TRANSPARENT //把状态栏颜色设置成透明
     }
 

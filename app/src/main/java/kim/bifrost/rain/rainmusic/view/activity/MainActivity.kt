@@ -1,5 +1,6 @@
 package kim.bifrost.rain.rainmusic.view.activity
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.animation.AlphaAnimation
 import androidx.core.view.postDelayed
@@ -7,7 +8,6 @@ import kim.bifrost.rain.rainmusic.R
 import kim.bifrost.rain.rainmusic.base.ui.BaseBindActivity
 import kim.bifrost.rain.rainmusic.databinding.ActivityMainBinding
 import kim.bifrost.rain.rainmusic.utils.extensions.gone
-import kim.bifrost.rain.rainmusic.utils.extensions.invisible
 import kim.bifrost.rain.rainmusic.utils.extensions.setOnEnd
 import kim.bifrost.rain.rainmusic.view.fragment.SplashFragment
 
@@ -32,5 +32,7 @@ class MainActivity : BaseBindActivity<ActivityMainBinding>(isCancelStatusBar = t
                 }
             )
         }
+        // DrawerLayout 的状态栏颜色
+        binding.dl.setStatusBarBackgroundColor(Color.TRANSPARENT)
     }
 }
