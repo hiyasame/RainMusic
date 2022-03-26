@@ -1,5 +1,7 @@
 package kim.bifrost.rain.rainmusic.api.source
 
+import kim.bifrost.rain.rainmusic.api.IStandardMusicInfo
+
 /**
  * kim.bifrost.rain.rainmusic.api.MusicSource
  * RainMusic
@@ -15,5 +17,13 @@ interface IMusicSource {
 }
 
 interface IWebMusicSource : IMusicSource {
-    // TODO: 获取网络数据的方法
+    /**
+     * 搜索音乐
+     *
+     * @param query
+     * @param limit
+     * @param offset
+     * @return
+     */
+    fun search(query: String, limit: Int, offset: Int): List<IStandardMusicInfo>
 }

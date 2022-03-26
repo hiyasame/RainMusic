@@ -2,4 +2,12 @@
     <string name="app_name">RainMusic</string>
     <string name="my">我的</string>
     <string name="square">发现</string>
+    <string name="playlist_recommend">歌单推荐</string>
+    <string name="song_recommend">新曲速递</string>
+    <string name="top_list">排行榜</string>
+    <string name="recommend">每日推荐</string>
+    <string name="login">登录</string>
+    <string name="local_music">本地音乐</string>
+    <string name="liked">喜欢</string>
+    <string name="history">历史</string>
 </resources>

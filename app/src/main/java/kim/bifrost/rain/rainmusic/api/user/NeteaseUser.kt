@@ -11,6 +11,9 @@ import kim.bifrost.rain.rainmusic.model.web.bean.netease.NeteaseLoginBean
  **/
 class NeteaseUser(private val bean: NeteaseLoginBean) : User {
 
+    override val uid: Int
+        get() = bean.account.id
+
     override val cookie: String
         get() = bean.cookie
 

@@ -1,5 +1,7 @@
 package kim.bifrost.rain.rainmusic.api.source
 
+import kim.bifrost.rain.rainmusic.api.IStandardMusicInfo
+
 /**
  * kim.bifrost.rain.rainmusic.api.source.QQMusicSource
  * RainMusic
@@ -12,4 +14,8 @@ object QQMusicSource : IWebMusicSource {
         get() = "QQ音乐"
     override val code: Int
         get() = 1
+
+    override fun search(query: String, limit: Int, offset: Int): List<IStandardMusicInfo> {
+        TODO("Not yet implemented")
+    }
 }

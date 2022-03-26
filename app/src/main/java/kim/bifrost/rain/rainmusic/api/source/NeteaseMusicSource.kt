@@ -1,5 +1,7 @@
 package kim.bifrost.rain.rainmusic.api.source
 
+import kim.bifrost.rain.rainmusic.api.IStandardMusicInfo
+
 /**
  * kim.bifrost.rain.rainmusic.api.source.NeteaseMusicSource
  * RainMusic
@@ -12,4 +14,8 @@ object NeteaseMusicSource : IWebMusicSource {
         get() = "网易云音乐"
     override val code: Int
         get() = 2
+
+    override fun search(query: String, limit: Int, offset: Int): List<IStandardMusicInfo> {
+        TODO("Not yet implemented")
+    }
 }

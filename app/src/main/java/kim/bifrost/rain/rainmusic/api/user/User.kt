@@ -9,6 +9,10 @@ package kim.bifrost.rain.rainmusic.api.user
  **/
 interface User {
     /**
+     * 用户id
+     */
+    val uid: Int
+    /**
      * cookie
      */
     val cookie: String

@@ -1,13 +1,11 @@
 package kim.bifrost.rain.rainmusic.model.web.api
 
-import com.google.gson.JsonObject
 import kim.bifrost.rain.rainmusic.api.user.NeteaseUser
 import kim.bifrost.rain.rainmusic.model.web.RetrofitHelper
-import kim.bifrost.rain.rainmusic.model.web.bean.netease.NeteaseLoginBean
+import kim.bifrost.rain.rainmusic.model.web.bean.netease.*
+import kim.bifrost.rain.rainmusic.utils.Constant
 import kim.bifrost.rain.rainmusic.utils.extensions.md5
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * kim.bifrost.rain.rainmusic.model.web.api.NeteaseCloudApi
@@ -27,7 +25,7 @@ interface NeteaseCloudApi {
      * @param captcha
      */
     @FormUrlEncoded
-    @POST("/login/cellphone")
+    @POST(Constant.NETEASE_LOGIN_PHONE)
     suspend fun loginByPhone(
         @Field("phone") phone: Int,
         password: String?,
@@ -35,12 +33,82 @@ interface NeteaseCloudApi {
         @Field("captcha") captcha: String? = null
     ): NeteaseLoginBean
 
+    /**
+     * 刷新登录状态
+     *
+     */
+    @GET(Constant.NETEASE_REFRESH_LOGIN_STATE)
+    suspend fun refreshLogin()
+
+    /**
+     * 发送验证码
+     *
+     * @param phone
+     */
+    @GET(Constant.NETEASE_CAPTCHA_SENT)
+    suspend fun sendCaptcha(
+        @Query("phone") phone: Int
+    ): NeteaseVerifyActionResult
+
+    /**
+     * 验证验证码是否正确
+     *
+     * @param phone
+     * @param captcha
+     * @return
+     */
+    @GET(Constant.NETEASE_CAPTCHA_VERIFY)
+    suspend fun verifyCaptcha(
+        @Query("phone") phone: Int,
+        @Query("captcha") captcha: String
+    ): NeteaseVerifyActionResult
+
+    /**
+     * 获取用户歌单
+     * 登录才能获取私有歌单
+     *
+     * @param uid
+     * @return
+     */
+    @GET(Constant.NETEASE_USER_PLAYLIST)
+    suspend fun getUserPlayList(
+        @Query("uid") uid: Int
+    ): NeteasePlayListBean
+
+    /**
+     * 获取每日推荐曲目
+     */
+    @GET(Constant.NETEASE_RECOMMEND_SONG)
+    suspend fun getRecommendSong(): NeteaseDailySongBean
+
+    /**
+     * 获取推荐歌单
+     *
+     * @param limit 数量限制
+     * @return
+     */
+    @GET(Constant.NETEASE_RECOMMEND_LIST)
+    suspend fun getRecommendPlayList(
+        @Query("limit") limit: Int
+    ): NeteaseRecommendPlayListBean
+
     companion object : NeteaseCloudApi by RetrofitHelper.neteaseCloudApi {
 
         var user: NeteaseUser? = null
 
-        fun updateUserInfo(info: NeteaseLoginBean) {
+        val hasLogin: Boolean
+            get() = user != null
+
+        override suspend fun loginByPhone(
+            phone: Int,
+            password: String?,
+            md5Password: String?,
+            captcha: String?
+        ): NeteaseLoginBean {
+            val info = RetrofitHelper.neteaseCloudApi.loginByPhone(phone, password, md5Password, captcha)
             user = NeteaseUser(info)
+            return info
         }
+
     }
 }
