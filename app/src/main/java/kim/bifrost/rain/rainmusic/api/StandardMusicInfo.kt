@@ -1,5 +1,7 @@
 package kim.bifrost.rain.rainmusic.api
 
+import kim.bifrost.rain.rainmusic.api.source.IMusicSource
+
 /**
  * kim.bifrost.rain.rainmusic.api.StandardMusicInfo
  * RainMusic

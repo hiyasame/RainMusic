@@ -1,6 +1,9 @@
 package kim.bifrost.rain.rainmusic.model.web
 
+import kim.bifrost.rain.rainmusic.model.web.api.NeteaseCloudApi
 import kim.bifrost.rain.rainmusic.model.web.api.OthersApi
+import kim.bifrost.rain.rainmusic.model.web.interceptor.NeteaseInterceptor
+import kim.bifrost.rain.rainmusic.utils.Constant
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,10 +19,11 @@ object RetrofitHelper {
 
     private val retrofit by lazy { initRetrofit() }
     val othersApi: OthersApi by lazy { retrofit.create(OthersApi::class.java) }
+    val neteaseCloudApi: NeteaseCloudApi by lazy { retrofit.create(NeteaseCloudApi::class.java) }
 
     private fun initRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://olbb.vercel.app")
+            .baseUrl(Constant.BASE_URL_NETEASE)
             .client(getClient())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -27,6 +31,7 @@ object RetrofitHelper {
 
     private fun getClient(): OkHttpClient {
         return OkHttpClient.Builder()
+            .addInterceptor(NeteaseInterceptor())
             .build()
     }
 
