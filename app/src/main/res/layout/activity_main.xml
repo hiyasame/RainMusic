@@ -15,16 +15,19 @@
         2、NavigationView会有一个蒙层，给NavigationView加个insetForeground属性-->
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/cdl"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 app:menu="@menu/menu_toolbar"
                 app:navigationIcon="@drawable/ic_menu"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize">
 
                 <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tl_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

@@ -1,7 +1,10 @@
 package kim.bifrost.rain.rainmusic.model.web.bean.netease
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.io.Serializable
 
+@Parcelize
 data class NeteaseLoginBean(
     val account: Account,
     val bindings: List<Binding>,
@@ -13,7 +16,8 @@ data class NeteaseLoginBean(
     val token: String,
     // 登录失败显示的信息
     val message: String?
-) : Serializable {
+) : Serializable, Parcelable {
+
     data class Account(
         val anonimousUser: Boolean,
         val ban: Int,

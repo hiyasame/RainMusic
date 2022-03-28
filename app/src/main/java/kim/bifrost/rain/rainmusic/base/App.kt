@@ -27,5 +27,6 @@ class App : Application() {
         appContext = this
         MMKV.initialize(appContext)
         mmkv = MMKV.defaultMMKV()
+//        Pandora.get()
     }
 }

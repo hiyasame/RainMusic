@@ -1,5 +1,6 @@
 package kim.bifrost.rain.rainmusic.model.web.bean.netease
 
+import kim.bifrost.rain.rainmusic.api.IStandardPlayList
 import java.io.Serializable
 
 data class NeteaseRecommendPlayListBean(
@@ -14,11 +15,18 @@ data class NeteaseRecommendPlayListBean(
         val copywriter: Any,
         val highQuality: Boolean,
         val id: Long,
-        val name: String,
+        override val name: String,
         val picUrl: String,
         val playCount: Int,
         val trackCount: Int,
         val trackNumberUpdateTime: Long,
-        val type: Int
-    ) : Serializable
+        val type: Int,
+    ) : Serializable, IStandardPlayList {
+        override val coverImgUrl: String
+            get() = picUrl
+        override val count: Int
+            get() = trackCount
+        override val playCounts: Int
+            get() = playCount
+    }
 }

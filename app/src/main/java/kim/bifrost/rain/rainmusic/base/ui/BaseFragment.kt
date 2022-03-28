@@ -7,6 +7,7 @@ import kim.bifrost.rain.rainmusic.utils.BindView
 import java.lang.RuntimeException
 import java.lang.reflect.ParameterizedType
 
+@Suppress("UNCHECKED_CAST")
 abstract class BaseFragment : Fragment() {
     /**
      * 得到父类中的泛型 Class 对象

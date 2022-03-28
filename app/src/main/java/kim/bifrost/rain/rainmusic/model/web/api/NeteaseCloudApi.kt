@@ -1,6 +1,9 @@
 package kim.bifrost.rain.rainmusic.model.web.api
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import kim.bifrost.rain.rainmusic.api.user.NeteaseUser
+import kim.bifrost.rain.rainmusic.base.App
 import kim.bifrost.rain.rainmusic.model.web.RetrofitHelper
 import kim.bifrost.rain.rainmusic.model.web.bean.netease.*
 import kim.bifrost.rain.rainmusic.utils.Constant
@@ -89,15 +92,15 @@ interface NeteaseCloudApi {
      */
     @GET(Constant.NETEASE_RECOMMEND_LIST)
     suspend fun getRecommendPlayList(
-        @Query("limit") limit: Int
+        @Query("limit") limit: Int = 16
     ): NeteaseRecommendPlayListBean
 
     companion object : NeteaseCloudApi by RetrofitHelper.neteaseCloudApi {
 
-        var user: NeteaseUser? = null
+        val user = MutableLiveData<NeteaseUser?>()
 
         val hasLogin: Boolean
-            get() = user != null
+            get() = user.value != null
 
         override suspend fun loginByPhone(
             phone: Int,
@@ -106,7 +109,8 @@ interface NeteaseCloudApi {
             captcha: String?
         ): NeteaseLoginBean {
             val info = RetrofitHelper.neteaseCloudApi.loginByPhone(phone, password, md5Password, captcha)
-            user = NeteaseUser(info)
+            user.value = NeteaseUser(info)
+            App.mmkv.encode("login", info)
             return info
         }
 

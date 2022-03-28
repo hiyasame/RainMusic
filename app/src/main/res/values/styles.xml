@@ -17,4 +17,10 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="roundedCornerImageStyle">
+        <item name="android:background">@color/salt_color_song_cover</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
 </resources>

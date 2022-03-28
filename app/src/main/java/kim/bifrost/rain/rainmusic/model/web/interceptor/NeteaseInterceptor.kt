@@ -17,12 +17,12 @@ class NeteaseInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var request = chain.request()
         val url = request.url
-        if (url.toString().startsWith(Constant.BASE_URL_NETEASE) && NeteaseCloudApi.user != null) {
+        if (url.toString().startsWith(Constant.BASE_URL_NETEASE) && NeteaseCloudApi.user.value != null) {
             val builder = request.newBuilder()
             if (request.method == "GET") {
                 builder.url(
                     url.newBuilder()
-                        .addQueryParameter("cookie", NeteaseCloudApi.user!!.cookie)
+                        .addQueryParameter("cookie", NeteaseCloudApi.user.value!!.cookie)
                         .build()
                 )
             } else if (request.method == "POST") {
@@ -31,7 +31,7 @@ class NeteaseInterceptor : Interceptor {
                 for (i in 0 until origin.size) {
                     bodyBuilder.addEncoded(origin.encodedName(i), origin.encodedValue(i))
                 }
-                bodyBuilder.add("cookie", NeteaseCloudApi.user!!.cookie)
+                bodyBuilder.add("cookie", NeteaseCloudApi.user.value!!.cookie)
                 builder.post(bodyBuilder.build())
             }
             request = builder.build()
