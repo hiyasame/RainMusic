@@ -8,9 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- 状态栏背景色 -->
-    <color name="colorStatusBar">#FFFFFF</color>
-
     <!-- 页面背景色-->
     <color name="colorPageBackground">#FFFFFF</color>
     <color name="dso_color_page">#F9F9F9</color>

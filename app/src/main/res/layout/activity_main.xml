@@ -21,10 +21,10 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                app:menu="@menu/menu_toolbar"
-                app:navigationIcon="@drawable/ic_menu"
                 android:layout_width="match_parent"
-                android:layout_height="?actionBarSize">
+                android:layout_height="?actionBarSize"
+                app:menu="@menu/menu_toolbar"
+                app:navigationIcon="@drawable/ic_menu">
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tl_main"
@@ -47,13 +47,13 @@
                         android:layout_height="wrap_content"
                         android:text="@string/my" />
 
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/square" />
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/square" />
 
-                    </com.google.android.material.tabs.TabLayout>
-                </androidx.appcompat.widget.Toolbar>
+                </com.google.android.material.tabs.TabLayout>
+            </androidx.appcompat.widget.Toolbar>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vp_main"
@@ -67,22 +67,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-                <eightbitlab.com.blurview.BlurView
-                    android:id="@+id/blurViewPlay"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/bg_mini_player"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurViewPlay"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_mini_player"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-                <include
-                    android:layout_gravity="bottom"
-                    android:id="@+id/bottom_player_bar"
-                    layout="@layout/bottom_player_bar"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" />
+            <include
+                android:id="@+id/bottom_player_bar"
+                layout="@layout/bottom_player_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -90,11 +90,12 @@
             android:id="@+id/navigationView"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:layout_gravity="start">
+            android:layout_gravity="start"
+            app:insetForeground="@android:color/transparent">
 
-            </com.google.android.material.navigation.NavigationView>
+        </com.google.android.material.navigation.NavigationView>
 
-        </androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/splash_screen"
