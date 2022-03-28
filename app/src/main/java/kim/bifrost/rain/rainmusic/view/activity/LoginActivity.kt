@@ -22,7 +22,8 @@ class LoginActivity :
         replaceFragment(R.id.container_login) {
             LoginPageFragment()
         }
-        LoginViewModel.loginState.apply {
+
+        viewModel.loginState.apply {
             value = LoginScreenState.START
             observeNotNull {
                 when (it) {

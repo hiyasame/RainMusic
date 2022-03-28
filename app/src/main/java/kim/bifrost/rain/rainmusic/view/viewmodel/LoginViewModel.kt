@@ -11,10 +11,7 @@ import androidx.lifecycle.ViewModel
  * @since 2022/3/28 10:49
  **/
 class LoginViewModel : ViewModel() {
-
-    companion object {
-        val loginState: MutableLiveData<LoginScreenState> = MutableLiveData()
-    }
+    val loginState: MutableLiveData<LoginScreenState> = MutableLiveData()
 }
 
 enum class LoginScreenState {
