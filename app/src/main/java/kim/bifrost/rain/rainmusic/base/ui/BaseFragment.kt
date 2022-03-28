@@ -45,7 +45,7 @@ abstract class BaseFragment : Fragment() {
 
     inline fun <T> LiveData<T?>.observeNotNull(
         crossinline onChange: (T) -> Unit
-    ) = observe(this@BaseFragment) {
+    ) = observe(viewLifecycleOwner) {
         it ?: return@observe
         onChange(it)
     }
