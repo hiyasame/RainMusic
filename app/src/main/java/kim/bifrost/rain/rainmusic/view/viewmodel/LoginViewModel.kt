@@ -2,6 +2,7 @@ package kim.bifrost.rain.rainmusic.view.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kim.bifrost.rain.rainmusic.model.web.api.NeteaseCloudApi
 
 /**
  * kim.bifrost.rain.rainmusic.view.viewmodel.LoginViewModel
@@ -12,6 +13,17 @@ import androidx.lifecycle.ViewModel
  **/
 class LoginViewModel : ViewModel() {
     val loginState: MutableLiveData<LoginScreenState> = MutableLiveData()
+
+    suspend fun neteaseLogin(phone: String, pass: String? = null, captcha: String? = null) =
+        NeteaseCloudApi.login(
+            phone = phone,
+            password = pass,
+            captcha = captcha
+        )
+
+    suspend fun neteaseSendCaptcha(phone: String) = NeteaseCloudApi.sendCaptcha(phone)
+
+    suspend fun neteaseVerifyCaptcha(phone: String, code: String) = NeteaseCloudApi.verifyCaptcha(phone, code)
 }
 
 enum class LoginScreenState {

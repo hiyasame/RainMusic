@@ -30,9 +30,8 @@ interface NeteaseCloudApi {
     @FormUrlEncoded
     @POST(Constant.NETEASE_LOGIN_PHONE)
     suspend fun loginByPhone(
-        @Field("phone") phone: Int,
-        password: String?,
-        @Field("md5_password") md5Password: String? = password?.md5(),
+        @Field("phone") phone: String,
+        @Field("md5_password") md5Password: String? = null,
         @Field("captcha") captcha: String? = null
     ): NeteaseLoginBean
 
@@ -50,7 +49,7 @@ interface NeteaseCloudApi {
      */
     @GET(Constant.NETEASE_CAPTCHA_SENT)
     suspend fun sendCaptcha(
-        @Query("phone") phone: Int
+        @Query("phone") phone: String
     ): NeteaseVerifyActionResult
 
     /**
@@ -62,7 +61,7 @@ interface NeteaseCloudApi {
      */
     @GET(Constant.NETEASE_CAPTCHA_VERIFY)
     suspend fun verifyCaptcha(
-        @Query("phone") phone: Int,
+        @Query("phone") phone: String,
         @Query("captcha") captcha: String
     ): NeteaseVerifyActionResult
 
@@ -102,15 +101,16 @@ interface NeteaseCloudApi {
         val hasLogin: Boolean
             get() = user.value != null
 
-        override suspend fun loginByPhone(
-            phone: Int,
-            password: String?,
-            md5Password: String?,
-            captcha: String?
+        suspend fun login(
+            phone: String,
+            password: String? = null,
+            captcha: String? = null
         ): NeteaseLoginBean {
-            val info = RetrofitHelper.neteaseCloudApi.loginByPhone(phone, password, md5Password, captcha)
-            user.value = NeteaseUser(info)
-            App.mmkv.encode("login", info)
+            val info = RetrofitHelper.neteaseCloudApi.loginByPhone(phone, password?.md5(), captcha)
+            if (info.code == 200) {
+                user.value = NeteaseUser(info)
+                App.mmkv.encode("login", info)
+            }
             return info
         }
 

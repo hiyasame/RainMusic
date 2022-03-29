@@ -17,4 +17,9 @@
     <string name="rain_music">Rain Music</string>
     <string name="qq_login">QQ音乐登录</string>
     <string name="netease_login">网易云登录</string>
+    <string name="phone_number">手机号</string>
+    <string name="password_or_verify_code">密码或验证码</string>
+    <string name="password_login">密码登录</string>
+    <string name="verify_code_login">验证码登录</string>
+    <string name="send_verify_code">发送验证码</string>
 </resources>

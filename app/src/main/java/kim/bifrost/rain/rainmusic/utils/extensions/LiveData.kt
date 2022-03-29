@@ -12,8 +12,12 @@ import kotlin.reflect.KProperty
  * @author 寒雨
  * @since 2022/3/27 1:58
  **/
-operator fun <T> LiveData<T>.getValue(thisRef: Any?, property: KProperty<*>): T? {
-    return value
+operator fun <T> LiveData<T>.getValue(thisRef: Any?, property: KProperty<*>): T {
+    return value!!
+}
+
+operator fun <T> MutableLiveData<T>.getValue(thisRef: Any?, property: KProperty<*>): T {
+    return value!!
 }
 
 operator fun <T> MutableLiveData<T>.setValue(thisRef: Any?, property: KProperty<*>, value: T) {
