@@ -23,7 +23,6 @@ interface NeteaseCloudApi {
      * 安全起见 密码一律使用md5散列
      *
      * @param phone
-     * @param password
      * @param md5Password
      * @param captcha
      */
@@ -93,6 +92,14 @@ interface NeteaseCloudApi {
     suspend fun getRecommendPlayList(
         @Query("limit") limit: Int = 16
     ): NeteaseRecommendPlayListBean
+
+    /**
+     * 获取新歌
+     *
+     * @return
+     */
+    @GET(Constant.NETEASE_NEW_SONG)
+    suspend fun getNewSongs(): NeteaseNewSongBean
 
     companion object : NeteaseCloudApi by RetrofitHelper.neteaseCloudApi {
 

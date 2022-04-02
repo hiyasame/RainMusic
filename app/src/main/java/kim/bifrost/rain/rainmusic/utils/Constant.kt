@@ -25,4 +25,6 @@ object Constant {
     const val NETEASE_RECOMMEND_LIST = "/personalized"
     // 获取每日推荐单曲
     const val NETEASE_RECOMMEND_SONG = "/recommend/songs"
+    // 获取每日推荐新曲
+    const val NETEASE_NEW_SONG = "/personalized/newsong"
 }

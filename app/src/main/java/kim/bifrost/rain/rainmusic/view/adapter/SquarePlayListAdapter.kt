@@ -14,8 +14,17 @@ import kim.bifrost.rain.rainmusic.databinding.ItemPlayList2Binding
  * @author 寒雨
  * @since 2022/3/27 13:28
  **/
-class SquarePlayListAdapter(private val items: List<IStandardPlayList>) : RecyclerView.Adapter<SquarePlayListAdapter.Holder>() {
-    inner class Holder(val binding: ItemPlayList2Binding) : RecyclerView.ViewHolder(binding.root)
+class SquarePlayListAdapter(
+    private val items: List<IStandardPlayList>,
+    private val onClick: IStandardPlayList.() -> Unit
+    ) : RecyclerView.Adapter<SquarePlayListAdapter.Holder>() {
+    inner class Holder(val binding: ItemPlayList2Binding) : RecyclerView.ViewHolder(binding.root) {
+        init {
+            binding.root.setOnClickListener {
+                items[bindingAdapterPosition].onClick()
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         return Holder(ItemPlayList2Binding.inflate(LayoutInflater.from(parent.context), parent, false))

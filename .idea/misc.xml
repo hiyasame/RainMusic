@@ -14,12 +14,18 @@
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/drawable/ic_menu.xml" value="0.1315" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/drawable/ic_mini_player_play.xml" value="0.1315" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/drawable/ic_music.xml" value="0.1315" />
+        <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/drawable/ic_next.xml" value="0.1315" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/drawable/ic_play_queue.xml" value="0.1315" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/drawable/ic_search.xml" value="0.1315" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/activity_splash.xml" value="0.22826086956521738" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/bottom_player_bar.xml" value="0.22826086956521738" />
+        <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/fragment_my.xml" value="0.12335359675785208" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/fragment_splash.xml" value="0.22826086956521738" />
+        <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/fragment_square.xml" value="0.2" />
+        <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/item_play_list_1.xml" value="0.12335359675785208" />
+        <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/item_play_list_2.xml" value="0.4" />
+        <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/layout/item_song_1.xml" value="0.22826086956521738" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/menu/menu_bootom_nav.xml" value="0.25364583333333335" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/menu/menu_toolbar.xml" value="0.25364583333333335" />
         <entry key="..\:/ColdRain_Moro/AndroidProject/RainMusic/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1235" />

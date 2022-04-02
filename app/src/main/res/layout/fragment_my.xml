@@ -1,129 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_area"
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_avatar"
-            app:shapeAppearance="@style/CircleStyle"
-            android:background="@color/color_home_widget"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.077"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:textColor="@color/colorTextForeground"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.099"
-            app:layout_constraintStart_toEndOf="@+id/iv_avatar"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.959"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.516"
-            tools:ignore="contentDescription" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
-        android:baselineAligned="false">
-        <FrameLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <ImageView
-                android:src="@drawable/ic_local_music"
-                android:layout_gravity="center"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                tools:ignore="contentDescription"/>
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/top_area"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_avatar"
+                app:shapeAppearance="@style/CircleStyle"
+                android:background="@color/color_home_widget"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.077"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@string/local_music"
-                android:textAlignment="center"
+                android:text="@string/login"
                 android:textColor="@color/colorTextForeground"
-                android:textSize="12sp"
-                android:layout_marginTop="48dp"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.099"
+                app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
-                android:src="@drawable/ic_liked"
-                android:layout_gravity="center"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                tools:ignore="contentDescription"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@string/liked"
-                android:textAlignment="center"
-                android:textColor="@color/colorTextForeground"
-                android:textSize="12sp"
-                android:layout_marginTop="48dp"
-                android:layout_gravity="center"/>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <ImageView
-                android:src="@drawable/ic_history"
-                android:layout_gravity="center"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                tools:ignore="contentDescription"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@string/history"
-                android:textAlignment="center"
-                android:textColor="@color/colorTextForeground"
-                android:textSize="12sp"
-                android:layout_marginTop="48dp"
-                android:layout_gravity="center"/>
-        </FrameLayout>
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.959"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.516"
+                tools:ignore="contentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="20dp"
+            android:baselineAligned="false">
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@drawable/ic_local_music"
+                    android:layout_gravity="center"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    tools:ignore="contentDescription"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/local_music"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextForeground"
+                    android:textSize="12sp"
+                    android:layout_marginTop="48dp"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@drawable/ic_liked"
+                    android:layout_gravity="center"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    tools:ignore="contentDescription"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/liked"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextForeground"
+                    android:textSize="12sp"
+                    android:layout_marginTop="48dp"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@drawable/ic_history"
+                    android:layout_gravity="center"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    tools:ignore="contentDescription"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/history"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextForeground"
+                    android:textSize="12sp"
+                    android:layout_marginTop="48dp"
+                    android:layout_gravity="center"/>
+            </FrameLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_playlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_playlist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

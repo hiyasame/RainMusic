@@ -1,5 +1,7 @@
 package kim.bifrost.rain.rainmusic.utils.extensions
 
+import com.tencent.mmkv.MMKV
+import kim.bifrost.rain.rainmusic.base.App
 import java.security.MessageDigest
 
 /**
@@ -14,15 +16,4 @@ import java.security.MessageDigest
  */
 fun <T> lazyUnlock(initializer: () -> T) = lazy(LazyThreadSafetyMode.NONE, initializer)
 
-fun String.md5(): String {
-    val hash = MessageDigest.getInstance("MD5").digest(toByteArray())
-    val hex = StringBuilder(hash.size * 2)
-    for (b in hash) {
-        var str = Integer.toHexString(b.toInt())
-        if (b < 0x10) {
-            str = "0$str"
-        }
-        hex.append(str.substring(str.length -2))
-    }
-    return hex.toString()
-}
+fun mmkv(): MMKV = App.mmkv

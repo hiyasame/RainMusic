@@ -18,9 +18,9 @@ interface IStandardPlayList : StandardData<StandardPlayList> {
     val count: Int
 
     // 播放量
-    val playCounts: Int
+    val playCounts: Long
 
-    override fun convertToStandardImpl(): StandardPlayList {
+    override suspend fun convertToStandardImpl(): StandardPlayList {
         return StandardPlayList(coverImgUrl, name, count, playCounts)
     }
 }
@@ -29,6 +29,6 @@ data class StandardPlayList(
     override val coverImgUrl: String,
     override val name: String,
     override val count: Int,
-    override val playCounts: Int
+    override val playCounts: Long
 ): IStandardPlayList
 

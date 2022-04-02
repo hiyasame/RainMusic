@@ -12,9 +12,7 @@ data class NeteasePlayListBean(
     data class Playlist(
         val adType: Int,
         val anonimous: Boolean,
-        val artists: Any,
-        val backgroundCoverId: Int,
-        val backgroundCoverUrl: Any,
+        val backgroundCoverId: Long,
         val cloudTrackCount: Int,
         val commentThreadId: String,
         val coverImgId: Long,
@@ -23,38 +21,30 @@ data class NeteasePlayListBean(
         val createTime: Long,
         val creator: Creator,
         val description: String,
-        val englishTitle: Any,
         val highQuality: Boolean,
-        val id: Int,
+        val id: Long,
         override val name: String,
         val newImported: Boolean,
         val opRecommend: Boolean,
         val ordered: Boolean,
-        val playCount: Int,
+        val playCount: Long,
         val privacy: Int,
-        val recommendInfo: Any,
-        val shareStatus: Any,
-        val sharedUsers: Any,
         val specialType: Int,
         val status: Int,
         val subscribed: Boolean,
         val subscribedCount: Int,
-        val subscribers: List<Any>,
         val tags: List<String>,
-        val titleImage: Int,
-        val titleImageUrl: Any,
+        val titleImage: Long,
         val totalDuration: Int,
         val trackCount: Int,
         val trackNumberUpdateTime: Long,
         val trackUpdateTime: Long,
-        val tracks: Any,
-        val updateFrequency: Any,
         val updateTime: Long,
         val userId: Int
     ) : Serializable, IStandardPlayList {
         override val count: Int = trackCount
 
-        override val playCounts: Int
+        override val playCounts: Long
             get() = playCount
 
         data class Creator(

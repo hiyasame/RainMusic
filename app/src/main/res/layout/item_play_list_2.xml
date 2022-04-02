@@ -8,7 +8,7 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_avatar"
-        style="@style/roundedCornerImageStyle"
+        app:shapeAppearance="@style/roundedCornerImageStyle"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toBottomOf="parent"

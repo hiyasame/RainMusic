@@ -15,5 +15,5 @@ interface StandardData<T> {
      *
      * @return
      */
-    fun convertToStandardImpl(): T
+    suspend fun convertToStandardImpl(): T
 }

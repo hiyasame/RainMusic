@@ -10,6 +10,12 @@ import kim.bifrost.rain.rainmusic.api.source.IMusicSource
  * @since 2022/3/24 11:27
  **/
 interface IStandardMusicInfo : StandardData<StandardMusicInfo> {
+
+    /**
+     * 音乐id
+     */
+    val musicId: Int
+
     /**
      * 音乐来源
      */
@@ -28,7 +34,7 @@ interface IStandardMusicInfo : StandardData<StandardMusicInfo> {
     /**
      * 艺术家
      */
-    val artists: List<IStandardMusicInfo>
+    val artists: List<IStandardArtistInfo>
 
     /**
      * 是否需要vip
@@ -36,12 +42,13 @@ interface IStandardMusicInfo : StandardData<StandardMusicInfo> {
     val requireVip: Boolean
 
     /**
-     * 网络音乐url/本地音乐路径
+     * 音乐本地路径
+     * 没有下载就为null
      */
-    val musicPath: String
+    suspend fun getMusicPath(): String? = null
 
-    override fun convertToStandardImpl(): StandardMusicInfo {
-        return StandardMusicInfo(source, imageUrl, artists, requireVip, musicPath, name)
+    override suspend fun convertToStandardImpl(): StandardMusicInfo {
+        return StandardMusicInfo(source, imageUrl, artists, requireVip, getMusicPath(), name, musicId)
     }
 }
 
@@ -61,7 +68,7 @@ interface IStandardArtistInfo : StandardData<StandardArtistInfo> {
      */
     val avatarUrl: String
 
-    override fun convertToStandardImpl(): StandardArtistInfo {
+    override suspend fun convertToStandardImpl(): StandardArtistInfo {
         return StandardArtistInfo(name, description, avatarUrl)
     }
 }
@@ -69,10 +76,11 @@ interface IStandardArtistInfo : StandardData<StandardArtistInfo> {
 data class StandardMusicInfo(
     override val source: IMusicSource,
     override val imageUrl: String,
-    override val artists: List<IStandardMusicInfo>,
+    override val artists: List<IStandardArtistInfo>,
     override val requireVip: Boolean,
-    override val musicPath: String,
-    override val name: String
+    val musicPath: String?,
+    override val name: String,
+    override val musicId: Int
 ) : IStandardMusicInfo
 
 data class StandardArtistInfo(

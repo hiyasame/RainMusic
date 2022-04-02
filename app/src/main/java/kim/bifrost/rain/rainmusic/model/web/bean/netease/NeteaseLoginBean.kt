@@ -60,7 +60,7 @@ data class NeteaseLoginBean(
         val backgroundImgId: Long,
         val backgroundImgIdStr: String,
         val backgroundUrl: String,
-        val birthday: Int,
+        val birthday: Long,
         val city: Int,
         val defaultAvatar: Boolean,
         val description: String,

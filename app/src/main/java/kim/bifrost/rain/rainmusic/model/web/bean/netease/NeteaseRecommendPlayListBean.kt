@@ -17,7 +17,7 @@ data class NeteaseRecommendPlayListBean(
         val id: Long,
         override val name: String,
         val picUrl: String,
-        val playCount: Int,
+        val playCount: Long,
         val trackCount: Int,
         val trackNumberUpdateTime: Long,
         val type: Int,
@@ -26,7 +26,7 @@ data class NeteaseRecommendPlayListBean(
             get() = picUrl
         override val count: Int
             get() = trackCount
-        override val playCounts: Int
+        override val playCounts: Long
             get() = playCount
     }
 }
